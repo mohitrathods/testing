@@ -2,7 +2,7 @@
 FROM STARTING TO END ALL COMMANDS
 SIMPLIFYING SOLUTION (SIMPLE COMMANDS AND WORDS TO UNDERSTAND)
 ************************************************************************************************************
-
+m
 1. 	git status - to see what is status
 2.	git init - initialize my reposatory to git reposetery it will show this
 3.	git status : it will show what is status
