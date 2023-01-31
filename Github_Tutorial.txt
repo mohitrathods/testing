@@ -1,0 +1,405 @@
+****************************************************************************************************************************************************************
+FROM STARTING TO END ALL COMMANDS
+SIMPLIFYING SOLUTION (SIMPLE COMMANDS AND WORDS TO UNDERSTAND)
+************************************************************************************************************
+
+1. 	git status - to see what is status
+2.	git init - initialize my reposatory to git reposetery it will show this
+3.	git status : it will show what is status
+4.	git add .	: 	all files will go from working directory to staging area
+5.	git commit -m "verson 1"		: now my changes are commited it will shows it into terminal where version 1 is a one type of comment
+6.	 git log		 : it will show what are the changes done with their 40 char. id. with what username and password
+7.	rahul@administrator:~/mohit/reactjs/git_tutorial$ git config --global user.name "mohitsrathod"
+	rahul@administrator:~/mohit/reactjs/git_tutorial$ git config --global user.email "rathodmohitss2002@gmail.com"
+	to change mail id globally (for all repo) 
+8.	now change into index.txt and utils.txt and give command > git status : it will show in terminal that what changes done
+	(MEANS CHANGES INTO FILE)
+9.	now give command > git add .  		: add my all files in staging area (point 7)
+10.	now give command > git commit -m "version 2"
+	now my changes are commited it will shows it into terminal
+11.	NOW if i give command git log     :  I EDITED VERSION 1 TO VERSION 2 now i tracked it with git. so if i am at version 10, but  i want some code from version 1, then i can get it.
+12.	NOW MAIN THINGS WILL GO HERE
+EDIT UTILS.TXT FILE FROM MY SYSTEM 
+utility functions for verson 3
+
+git status > it will say that you edited ine file (step 8)
+git add . > refer upper steps (step 9)
+git commit -m "Changed utils.txt"  >  (step 10)
+
+NOW i GET after giving Command : git log
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git log
+commit 3b365f586e679aee8d111bb384b1440e3be76862 (HEAD -> master)
+Author: mohitsrathod <rathodmohitss2002@gmail.com>
+Date:   Thu Nov 5 18:06:14 2020 +0530
+
+    Changed utils.txt
+
+commit 8683a35ada588c94125eceba7a916f8720b4b849 (origin/master)
+Author: mohitsrathod <rathodmohitss2002@gmail.com>
+Date:   Thu Nov 5 16:30:50 2020 +0530
+
+    version 2
+
+commit fab08db93cb8dfb4dbd39438d678519d9c5fa279
+Author: gmail.com <rathodrahuls.1998@gmail.com>
+Date:   Thu Nov 5 16:08:16 2020 +0530
+
+    verson 1
+-----------------------------
+GETTING A UPDATED FILE FROM GITHUB INTO MY COMPUTER SYSTEM
+
+> git pull origin master
+
+it will get updated file from github repo and automatic changes my files
+for example i changed index.txt file i writed something new, now if i give pull command then it will auto update index.txt file on my computer system
+
+now give command > git log : to see changes
+
+****************************************
+GIT DIFFRENCE COMMANDS
+
+do some changes into utils.txt
+13. git diff utils.txt > to see what changes done in utils.txt into terminal
+
+now > git add .
+> git commit -m "Video 6"
+> git status
+> git push origin master
+
+> now some change into utils.txt
+> git diff utils.txt 			: it will show changes
+> git add .			
+> git diff utils.txt				: it will not show changes
+> git diff --staged utils.txt	: now it will show changes
+
+BUT WHAT IF I DONT WANT ANY CHANGES WHAT I DO TODAY? I HAVE TO UNSTAGE ALL TODAY'S FILES TO GET MY INITIAL STATE OF TODAY FROM WHERE I STARTED WORKING.
+I HAVE TO UNSTAGE ALL THE FILES
+> git status
+> git reset utils.txt
+> git status 
+> git checkout utils.txt
+
+TO RESET ALL FILES
+> git checkout .
+
+TO CHECK WHAT COMMITS DONE
+> git log
+
+---------------------------------------
+MANY VERSONS OF GIT ADD
+git add -A	> stages all
+git add .	> stages new and modified without deleted
+git add -u	> stages modified and deleted without new
+
+****************************************
+CLONING IN GIT
+
+14. make a folder in which you want to get (clone) code from git repo and goto that folder directory through terminal.
+GIVE COMMAND > git clone 				https://github.com/mohitsrathod/hello-world.git
+				     git clone command	link of repo from where i want code (https & ssh links available)
+if i do not want to make folder into that directory then give space and . ( .) after URL. 	means it will not make folder it will get all files directly
+
+****************************************
+Ignoring Files In Git By Adding .gitignore FILE
+
+15. give command >     touch .gitignore 	: it will make .gitignore hidden file (to see it > ls -a)
+
+FURTHER READING Link below
+https://docs.github.com/en/free-pro-team@latest/github/using-git/ignoring-files
+
+****************************************
+BRANCHING IN GIT
+
+16. 
+> git init			: it will make hidden folder named .git
+> git add .
+> git commit -m "initial commit"
+> git log
+> git status
+
+NOW i maked 2 files and uploaded into my repo in github.
+
+rahul@administrator:~/mohit/reactjs/branching_tutorial$  git remote add origin https://github.com/mohitsrathod/branching-repo.git
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git push -u origin master
+
+WHAT IS NEW BRANCH? 
+> new branch is likely new copy of your project. there is master branch and branches that made by you. so you do not need tp changes directly into master branch. if you are making your branch. after changes done, you can merge your code in your branch with master branch.
+
+>>>>>>SEE WHICH BRANCHES ARE AVAILABLE AND MAKE NEW BRANCH AND SEE THAT BRANCH I ADDED
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git branch
+* master
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git branch header-code
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git branch
+
+header-code is subbranch that i made. now i will change in that file and if all code is proper then merge it with master branch.
+
+NOW I HAVE TO SWITCH INTO SUB BRANCH THAT I MADE
+> git checkout header-code
+Now i am into header-code branch
+
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git branch
+* header-code
+  master
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git status
+...
+...
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git add .
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git commit -m "Added Header"
+[header-code 828e98e] Added Header
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+ create mode 100644 Untitled Document 3.txt
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git push origin header-code	(i am into header-code branch not in master branch)
+...
+...
+
+>>>>>>>>> NOW I HAVE TO MERGE header-code branch into master branch
+now if i will right >  git checkout master 		: means come into master branch, then untitled.3 will be deleted
+NOW > git merge header-code
+
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git merge header-code
+Updating b0a57ec..828e98e
+Fast-forward
+ Untitled Document 2.txt | 2 +-
+ Untitled Document 3.txt | 1 +
+ Untitled Document.txt   | 2 +-
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+ create mode 100644 Untitled Document 3.txt
+rahul@administrator:~/mohit/reactjs/branching_tutorial$ git push -u origin master
+
+NOW TO DELETE BRANCH FROM COMPUTER
+git branch -d header-code
+
+to  delete branch into remote system(github)
+git push origin --delete header-code (header-code OR branch name)
+****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+
+----------------------------------------------FULLY EXPLAINED FROM HERE---------------------------------------------------------------
+
+****************************************************************************************************************************************************************
+FROM STARTING TO PULL PUSH
+IF DO NOT UNDERSTAND, TRY THIS WITH FULLY EXPLAINED.
+************************************************************************************
+CREATE REPO WITHOUT READMe on github (i can add after if i want) below things are given at there website if i create repo without readme
+
+…or create a new repository on the command line
+echo "# keep-notes-clone" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mohitsrathod/keep-notes-clone.git
+git push -u origin main
+                
+…or push an existing repository from the command line
+git remote add origin https://github.com/mohitsrathod/keep-notes-clone.git
+git branch -M main
+git push -u origin main
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+(	> FIRST I MADE GIT TUTORIAL NAMED FOLDER AND ADDED 2 TXT FILES NAMED index.txt and utils.txt for tutorial example.
+> now whatever commands i give, that is into git_tutorial directory	)
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. 	git status - to see what is status
+
+2.	git init - initialize my reposatory to git reposetery it will show this
+
+Initialized empty Git repository in /home/rahul/mohit/reactjs/git_tutorial/.git/
+ it maked hidden folder named .git
+
+3. 	rahul@administrator:~/mohit/reactjs/git_tutorial$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	index.txt
+	text_document.txt
+	utils.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+
+4. 	rahul@administrator:~/mohit/reactjs/git_tutorial$ git add .
+all files will go from working directory to staging area
+
+means my working directory is on my local system it will go to staging area from there i have to commit it to github  repo
+NOW if i will right git status it will not say that my files are untracked
+
+5.	git commit -m "verson 1"
+now my changes are commited it will shows it into terminal
+
+[master (root-commit) fab08db] verson 1
+ 3 files changed, 3 insertions(+)
+ create mode 100644 index.txt
+ create mode 100644 text_document.txt
+ create mode 100644 utils.txt
+
+6.	 git log
+
+commit fab08db93cb8dfb4dbd39438d678519d9c5fa279 (HEAD -> master)
+Author: gmail.com <rathodrahuls.1998@gmail.com>
+Date:   Thu Nov 5 16:08:16 2020 +0530
+
+    verson 1
+
+
+7.
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git config --global user.name "mohitsrathod"
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git config --global user.email "rathodmohitss2002@gmail.com"
+
+
+to change mail id globally (for all repo) 	
+globally : if i make another repo it will use name and mail id that i gived globally (if i not add globally everytime i create new repo i have to give mailid and username)
+	
+8. 	now change into index.txt and utils.txt and give command > git status : it will show in terminal that what changes done
+
+9. now give command > git add .  		: add my all files in staging area (point 7)
+
+10. now give command > git commit -m "version 2"
+now my changes are commited it will shows it into terminal
+
+11. NOW if i give command git log
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git log
+commit 8683a35ada588c94125eceba7a916f8720b4b849 (HEAD -> master)
+Author: mohitsrathod <rathodmohitss2002@gmail.com>
+Date:   Thu Nov 5 16:30:50 2020 +0530
+
+    version 2
+
+commit fab08db93cb8dfb4dbd39438d678519d9c5fa279
+Author: gmail.com <rathodrahuls.1998@gmail.com>
+Date:   Thu Nov 5 16:08:16 2020 +0530
+
+    verson 1
+
+I EDITED VERSION 1 TO VERSION 2 now i tracked it with git. so if i am at version 10, but  i want some code from version 1, then i can get it.
+
+---------------------------------------------------
+EDIT UTILS.TXT FILE FROM MY SYSTEM 
+utility functions for verson 3
+
+git status > it will say that you edited ine file (step 8)
+git add . > refer upper steps (step 9)
+git commit -m "Changed utils.txt"  >  (step 10)
+
+NOW i GET after giving Command : git log
+rahul@administrator:~/mohit/reactjs/git_tutorial$ git log
+commit 3b365f586e679aee8d111bb384b1440e3be76862 (HEAD -> master)
+Author: mohitsrathod <rathodmohitss2002@gmail.com>
+Date:   Thu Nov 5 18:06:14 2020 +0530
+
+    Changed utils.txt
+
+commit 8683a35ada588c94125eceba7a916f8720b4b849 (origin/master)
+Author: mohitsrathod <rathodmohitss2002@gmail.com>
+Date:   Thu Nov 5 16:30:50 2020 +0530
+
+    version 2
+
+commit fab08db93cb8dfb4dbd39438d678519d9c5fa279
+Author: gmail.com <rathodrahuls.1998@gmail.com>
+Date:   Thu Nov 5 16:08:16 2020 +0530
+
+    verson 1
+-------------------------------------------------------------------------------------------
+GETTING A UPDATED FILE FROM GITHUB INTO MY COMPUTER SYSTEM
+> git pull origin master
+it will get updated file from github repo and automatic changes my files
+for example i changed index.txt file i writed something new, now if i give pull command then it will auto update index.txt file on my computer system
+
+now give command > git log : to see changes
+
+
+**********************************************************************************************************************************************************************
+FROM PULL PUSH, DIFF COMMANDS TO
+DID NOT UNDERSTAND?
+FULLEY EXPLAINED FROM GIT DIFFRENCE COMMANDS
+
+13. i am changing something into utils.txt now give command > git diff utils.txt	: it will show in terminal that what changes i done
+
+now > git add .
+> git commit -m "Video 6"
+> git status
+> git push origin master
+
+***********************************************************************************************************************************************************************
+
+-----------------------------------------------------------FULLY EXPLAINED ENDS HERE----------------------------------------------------------------
+
+XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ XYZ --------- XYZ
+
+-----------------------------------------------------------
+Pull and Push between 3 person
+person 1 : at 7pm he get (pulls) code from github added some programming and pushed to github
+
+person 2 : at 9 pm he pulls code from github first he sees what changes done by person 1 with git log command.  and he sees that some coading is wrong. so he will make new verson by commit and pushes that code to github.
+
+person 3 : at 11 pm he sees changes done by peron 1 and 2. and he added some changes and pushed code to github.
+
+WHAT IS GIT 3 STAGE ARCITACTURE?
+> working area			: 	staging area		:		 commits
+	file 1--------------------------------> file 1-------------------------------->file 1
+			putting into          		 now if i want to store that 
+            	        staging area 			 version than i will commit
+
+******************************************************************************************************************************************************************
+-----------------------------------------------------------------
+ADD ORIGIN with SSH key but i can also pull push files without ssh key
+
+git remote add origin https://github.com/mohitsrathod/demo-repository.git
+
+this is git command	       this is link generated for perticular repo
+
+OR 
+ git remote add origin git@github.com:mohitsrathod/demo-repository.git
+
+this is git command		this is SSH key
+WHAT IS SSH KEY?		ssh key gives access to my computer to add code into my github account. to pull and push files from github account i have a SSH key in my github profile. 
+> simpley i can push and pull code to my github account with the help of ssh key.  i have to generate it from my account settings.
+MORE ABOUT SSH KEY here is link
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh 
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+rahul@administrator:~/mohit/reactjs/git_tutorial$ ssh-keygen -t ed25519 -C "rathodmohitss2002@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/rahul/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/rahul/.ssh/id_ed25519.
+Your public key has been saved in /home/rahul/.ssh/id_ed25519.pub.
+The key fingerprint is:
+SHA256:xE43N2p44WO0iXfq8+YG83V7Gg9dd7uzHYhf4YiHVHQ rathodmohitss2002@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|             . E |
+|       .    . .  |
+|        + = o.   |
+|       + * B..   |
+|        S @..  .+|
+|         =+++ =.B|
+|          .B =o*o|
+|         .. * .*=|
+|          .*o..+*|
++----[SHA256]-----+
+rahul@administrator:~/mohit/reactjs/git_tutorial$ eval "$(ssh-agent -s)"
+Agent pid 3307
+
+
+
+
+
+
+
+
+
